@@ -51,7 +51,13 @@ function SellerDashboard() {
           "Content-Type": "application/json",
           Authorization: localStorage.getItem("token"),
         },
-        body: JSON.stringify({ productData }),
+        body: JSON.stringify({
+          name: productData.name,
+          description: productData.description,
+          price: Number(productData.price),
+          stock: Number(productData.stock),
+          imageUrl: productData.imageUrl,
+        }),
       });
 
       const result = await response.json();
