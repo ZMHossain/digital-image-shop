@@ -1,7 +1,8 @@
-export const productController = async (req, res) => {
+const Product = require("../Models/ProductModel");
+
+const productController = async (req, res) => {
   try {
     const { name, description, price, stock, imageUrl } = req.body;
-    console.log("reqBody:", req.body);
 
     const { _id } = req.user;
     // Fetch the user (owner) from the userId
@@ -10,7 +11,7 @@ export const productController = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    const product = await new Product({
+    const product = new Product({
       name,
       description,
       price,
@@ -32,3 +33,4 @@ export const productController = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
+module.exports = { productController };

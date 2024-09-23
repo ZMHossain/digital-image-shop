@@ -1,4 +1,3 @@
-const express = require("express");
 const Product = require("../Models/ProductModel");
 const User = require("../Models/User"); // Ensure User model is imported
 
