@@ -30,7 +30,7 @@ function Home() {
 
       const response = await fetch(url, headers);
       const result = await response.json();
-      console.log(result);
+
       setProducts(result);
     } catch (err) {
       handleError(err);
@@ -39,7 +39,6 @@ function Home() {
   useEffect(() => {
     fetchProducts();
   }, []);
-  console.log(products);
 
   return (
     <>

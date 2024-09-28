@@ -3,13 +3,12 @@ import Navbar from "../components/Navbar";
 import { handleError, handleSuccess } from "../util";
 import { ToastContainer } from "react-toastify";
 
-const Welcome = () => {
+const SellerDashboardCart = () => {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
 
   const fetchProducts = async () => {
     try {
-      const url = "http://localhost:8080/products/allproducts";
+      const url = "http://localhost:8080/products/sellerproducts";
       const response = await fetch(url);
       const result = await response.json();
       // Log the result to verify it's the expected array
@@ -30,10 +29,6 @@ const Welcome = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-    handleSuccess("Product added to cart!");
-  };
 
   return (
     <>
@@ -48,7 +43,7 @@ const Welcome = () => {
             fontSize: "50px",
           }}
         >
-          Welcome to NexCart
+          Welcome to Seller Dashboard Cart
         </h1>
         <div
           style={{
@@ -82,19 +77,6 @@ const Welcome = () => {
                 <p style={{ fontSize: "25px", padding: "5px" }}>
                   <strong>${product.price}</strong>
                 </p>
-                {/* <button
-                  onClick={() => addToCart(product)}
-                  style={{
-                    backgroundColor: "#4CAF50",
-                    color: "white",
-                    padding: "10px",
-                    border: "none",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                  }}
-                >
-                  Add to Cart
-                </button> */}
               </div>
             ))}
         </div>
@@ -104,4 +86,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default SellerDashboardCart;

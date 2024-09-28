@@ -8,12 +8,11 @@ import RefreshHandler from "./RefreshHandler";
 import Welcome from "./pages/Welcome";
 import SellerDashboard from "./pages/SellerDashboard";
 import Layout from "./components/Layout";
+import SellerDashboardCart from "./pages/SellerDashboardCart";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const PrivateRoute = ({ element }) => {
-    console.log(isAuthenticated);
-
     return isAuthenticated ? element : <Navigate to="/login" />;
   };
 
@@ -25,6 +24,10 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
 
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
+          <Route
+            path="/seller-dashboard-cart"
+            element={<SellerDashboardCart />}
+          />
 
           <Route path="/home" element={<PrivateRoute element={<Home />} />} />
         </Route>

@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const handleSellerDashboardClick = () => {
     const isSellerAuthenticated = localStorage.getItem("sellerAuth"); // Check auth status for seller
-
+    console.log(isSellerAuthenticated);
     if (isSellerAuthenticated) {
       navigate("/seller-dashboard"); // If already authenticated, navigate to seller dashboard
     } else {

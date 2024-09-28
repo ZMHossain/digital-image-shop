@@ -20,7 +20,15 @@ router.get("/", ensureAuthenticated, (req, res) => {
 });
 
 // Get all products
-router.get("/products", async (req, res) => {
+router.get("/allproducts", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+router.get("/sellerproducts", ensureAuthenticated, async (req, res) => {
   try {
     const products = await Product.find();
     res.json(products);

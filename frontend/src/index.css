@@ -86,3 +86,7 @@ button {
 /* .page-content {
   margin-top: 0px; Adjust based on the height of your Navbar
 } */
+
+.cart-button {
+  margin: 20px;
+}

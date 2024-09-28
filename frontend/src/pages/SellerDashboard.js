@@ -80,6 +80,9 @@ function SellerDashboard() {
       alert("There was an error adding the product");
     }
   };
+  const handleSeeCart = () => {
+    navigate("/seller-dashboard-cart");
+  };
 
   return (
     <>
@@ -141,6 +144,9 @@ function SellerDashboard() {
           <button type="submit">Add Product</button>
         </form>
         <button onClick={handleLogout}>Logout</button>
+        <button className="cart-button" onClick={handleSeeCart}>
+          See Cart
+        </button>
 
         <ToastContainer />
       </div>

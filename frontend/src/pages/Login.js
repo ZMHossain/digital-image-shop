@@ -46,10 +46,13 @@ function Login() {
         localStorage.setItem("loggedInUser", name);
 
         // Check user type from response or location state
-        if (location.state && location.state.type === "seller") {
+        // if (location.state && location.state.type === "seller") {
+        if (loginInfo.accountType === "seller") {
           localStorage.setItem("sellerAuth", true); // Optional: set a flag for seller authentication
+
           navigate("/seller-dashboard"); // Redirect to seller dashboard
-        } else if (location.state && location.state.type === "buyer") {
+          // } else if (location.state && location.state.type === "buyer") {
+        } else if (loginInfo.accountType === "buyer") {
           localStorage.setItem("buyerAuth", true); // Optional: set a flag for buyer authentication
           navigate("/buyer-dashboard"); // Redirect to buyer dashboard
         } else {
@@ -77,7 +80,8 @@ function Login() {
       handleError(err);
     }
   };
-
+  console.log("run");
+  console.log(localStorage);
   return (
     <div className="container">
       <h1>Login</h1>
