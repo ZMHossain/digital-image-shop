@@ -23,15 +23,19 @@ router.get("/", ensureAuthenticated, (req, res) => {
 router.get("/allproducts", async (req, res) => {
   try {
     const products = await Product.find();
+
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
-router.get("/sellerproducts", ensureAuthenticated, async (req, res) => {
+router.get("/sellerproducts", async (req, res) => {
+  const { email } = req.params;
   try {
-    const products = await Product.find();
-    res.json(products);
+    const seller = await Product.findOne({ email: "seller@gmail.com" });
+    console.log(seller.products);
+
+    res.json(seller.products);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

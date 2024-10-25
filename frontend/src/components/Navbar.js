@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -9,7 +9,17 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
 
 const Navbar = () => {
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("loggedInUser", "name");
+    console.log(storedData);
+
+    if (storedData) {
+      setUser(storedData);
+    }
+  }, []);
 
   const handleSellerDashboardClick = () => {
     const isSellerAuthenticated = localStorage.getItem("sellerAuth"); // Check auth status for seller
@@ -38,13 +48,14 @@ const Navbar = () => {
           NexCart
         </Typography>
         <Button color="inherit" component={Link} to="/">
-          Home
+          {user ? "Settings" : "Home"}
         </Button>
+
         <Button color="inherit" component={Link} to="/login">
-          Login
+          {user ? user : "Login"}
         </Button>
         <Button color="inherit" component={Link} to="/signup">
-          Signup
+          {user ? "Become a Seller" : "Signup"}
         </Button>
         <Button
           onClick={handleSellerDashboardClick}
@@ -52,7 +63,7 @@ const Navbar = () => {
           // component={Link}
           // to="/seller-dashboard"
         >
-          Seller Dashboard
+          {user ? "Help" : "Seller Dashboard"}
         </Button>
         <Button
           onClick={handleBuyerDashboardClick}

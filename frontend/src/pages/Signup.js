@@ -14,7 +14,7 @@ function Signup() {
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+
     const copySignupInfo = { ...signupInfo };
     copySignupInfo[name] = value;
     setSignupInfo(copySignupInfo);
@@ -24,7 +24,6 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     const { name, email, password, accountType } = signupInfo;
-    console.log(signupInfo);
 
     if (!name || !email || !password || !accountType) {
       return handleError("name,email,password and Account type are required");

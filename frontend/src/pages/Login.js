@@ -14,7 +14,7 @@ function Login() {
   const location = useLocation(); // Used to get the user type passed from navbar (seller or buyer)
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+
     const copyLoginInfo = { ...loginInfo };
     copyLoginInfo[name] = value;
     setLoginInfo(copyLoginInfo);
@@ -54,7 +54,7 @@ function Login() {
           // } else if (location.state && location.state.type === "buyer") {
         } else if (loginInfo.accountType === "buyer") {
           localStorage.setItem("buyerAuth", true); // Optional: set a flag for buyer authentication
-          navigate("/buyer-dashboard"); // Redirect to buyer dashboard
+          navigate("/nexcart"); // Redirect to buyer dashboard
         } else {
           setTimeout(() => {
             navigate("/home");
@@ -74,14 +74,11 @@ function Login() {
         // Handle other login errors
         alert("Invalid credentials or some other error");
       }
-
-      console.log(result);
     } catch (err) {
       handleError(err);
     }
   };
-  console.log("run");
-  console.log(localStorage);
+
   return (
     <div className="container">
       <h1>Login</h1>

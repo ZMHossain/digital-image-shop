@@ -9,6 +9,7 @@ import Welcome from "./pages/Welcome";
 import SellerDashboard from "./pages/SellerDashboard";
 import Layout from "./components/Layout";
 import SellerDashboardCart from "./pages/SellerDashboardCart";
+import BuyerDashboard from "./pages/BuyerDashboard";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
 
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
+          <Route path="/buyer-dashboard" element={<BuyerDashboard />} />
           <Route
             path="/seller-dashboard-cart"
             element={<SellerDashboardCart />}
