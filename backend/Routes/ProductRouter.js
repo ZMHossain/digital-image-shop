@@ -48,6 +48,8 @@ router.post("/add", ensureAuthenticated, productController);
 router.get("/user/:userId", async (req, res) => {
   try {
     const products = await Product.find({ owner: req.params.userId });
+    console.log(products);
+
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ error: error.message });

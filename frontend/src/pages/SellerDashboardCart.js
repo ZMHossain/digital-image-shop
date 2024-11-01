@@ -8,7 +8,8 @@ const SellerDashboardCart = () => {
 
   const fetchProducts = async () => {
     try {
-      const url = "http://localhost:8080/products/sellerproducts";
+      const userId = localStorage.getItem("loggedInUser");
+      const url = `http://localhost:8080/products/user/${userId}`;
       const response = await fetch(url);
       const result = await response.json();
       // Log the result to verify it's the expected array

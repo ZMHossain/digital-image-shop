@@ -10,20 +10,30 @@ import IconButton from "@mui/material/IconButton";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
+  const [buyerType, setBuyerType] = useState(null);
+  const [sellerType, setSellerType] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const storedData = localStorage.getItem("loggedInUser", "name");
-    console.log(storedData);
+    const buyerAuth = localStorage.getItem("buyerAuth", true);
+
+    const sellerAuth = localStorage.getItem("sellerAuth", true);
 
     if (storedData) {
       setUser(storedData);
+    }
+    if (buyerAuth) {
+      setBuyerType(buyerAuth);
+    }
+    if (sellerAuth) {
+      setSellerType(sellerAuth);
     }
   }, []);
 
   const handleSellerDashboardClick = () => {
     const isSellerAuthenticated = localStorage.getItem("sellerAuth"); // Check auth status for seller
-    console.log(isSellerAuthenticated);
+
     if (isSellerAuthenticated) {
       navigate("/seller-dashboard"); // If already authenticated, navigate to seller dashboard
     } else {
@@ -41,6 +51,8 @@ const Navbar = () => {
     }
   };
 
+  const handleDropdownLoginUser = () => {};
+
   return (
     <AppBar position="fixed" sx={{ top: 0, left: 0 }}>
       <Toolbar>
@@ -51,7 +63,12 @@ const Navbar = () => {
           {user ? "Settings" : "Home"}
         </Button>
 
-        <Button color="inherit" component={Link} to="/login">
+        <Button
+          onMouseOver={handleDropdownLoginUser}
+          color="inherit"
+          component={Link}
+          to="/login"
+        >
           {user ? user : "Login"}
         </Button>
         <Button color="inherit" component={Link} to="/signup">
@@ -63,7 +80,7 @@ const Navbar = () => {
           // component={Link}
           // to="/seller-dashboard"
         >
-          {user ? "Help" : "Seller Dashboard"}
+          {user && buyerType === "true" ? "Buyer Dashboard" : "Help"}
         </Button>
         <Button
           onClick={handleBuyerDashboardClick}
@@ -71,7 +88,7 @@ const Navbar = () => {
           // component={Link}
           // to="/buyer-dashboard"
         >
-          Buyer Dashboard
+          {user && sellerType === "true" ? "Seller Dashboard" : "Help"}
         </Button>
         {/* Add Search Icon */}
         <IconButton color="inherit">
