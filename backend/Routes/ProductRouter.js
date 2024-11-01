@@ -45,12 +45,14 @@ router.get("/sellerproducts", async (req, res) => {
 router.post("/add", ensureAuthenticated, productController);
 
 // Fetch all products for a specific user
-router.get("/user/:userId", async (req, res) => {
+router.get("/user/:userName", async (req, res) => {
   try {
-    const products = await Product.find({ owner: req.params.userId });
-    console.log(products);
+    const user = await User.findOne({ name: req.params.userName }).populate(
+      "products"
+    );
+    console.log(user.products);
 
-    res.status(200).json(products);
+    res.status(200).json(user.products);
   } catch (error) {
     res.status(500).json({ error: error.message });
     console.log(error);
