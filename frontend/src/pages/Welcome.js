@@ -38,7 +38,7 @@ const Welcome = () => {
   return (
     <>
       <Navbar />
-      <div style={{ marginTop: "750px", padding: "20px" }}>
+      <div style={{ marginTop: "30px", padding: "250px" }}>
         <h1
           style={{
             display: "flex",
@@ -53,9 +53,8 @@ const Welcome = () => {
         <div
           style={{
             display: "flex",
-
             flexWrap: "wrap",
-            justifyContent: "space-around",
+            justifyContent: "space-between", // or "space-around"
           }}
         >
           {products &&
@@ -70,6 +69,7 @@ const Welcome = () => {
                   borderRadius: "8px",
                   boxShadow: "5px",
                   boxSizing: "border-box",
+                  overflow: "hidden",
                 }}
               >
                 <img

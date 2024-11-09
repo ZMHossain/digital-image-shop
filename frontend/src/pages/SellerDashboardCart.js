@@ -34,7 +34,7 @@ const SellerDashboardCart = () => {
   return (
     <>
       <Navbar />
-      <div style={{ marginTop: "750px", padding: "20px" }}>
+      <div style={{ marginTop: "50px", padding: "20px" }}>
         <h1
           style={{
             display: "flex",
@@ -66,6 +66,7 @@ const SellerDashboardCart = () => {
                   borderRadius: "8px",
                   boxShadow: "5px",
                   boxSizing: "border-box",
+                  overflow: "hidden",
                 }}
               >
                 <img

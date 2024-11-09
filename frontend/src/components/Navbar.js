@@ -7,8 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   const [user, setUser] = useState(null);
   const [buyerType, setBuyerType] = useState(null);
   const [sellerType, setSellerType] = useState(null);
@@ -72,16 +76,18 @@ const Navbar = () => {
           {user ? user : "Login"}
         </Button>
         <Button color="inherit" component={Link} to="/signup">
-          {user ? "Become a Seller" : "Signup"}
+          {user && buyerType === "true" ? "Become a Seller" : "Signup"}
         </Button>
-        <Button
-          onClick={handleSellerDashboardClick}
-          color="inherit"
-          // component={Link}
-          // to="/seller-dashboard"
-        >
-          {user && buyerType === "true" ? "Buyer Dashboard" : "Help"}
-        </Button>
+        {(user || buyerType === "true") && (
+          <Button
+            onClick={handleSellerDashboardClick}
+            color="inherit"
+            // component={Link}
+            // to="/seller-dashboard"
+          >
+            {user && buyerType === "true" ? "Buyer Dashboard" : "Help"}
+          </Button>
+        )}
         <Button
           onClick={handleBuyerDashboardClick}
           color="inherit"
