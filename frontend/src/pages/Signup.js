@@ -59,60 +59,85 @@ function Signup() {
   };
 
   return (
-    <div className="container">
-      <h1>SignUp</h1>
-      <form onSubmit={handleSignup}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            onChange={handleChange}
-            type="text"
-            name="name"
-            autoFocus
-            placeholder="Enter your name"
-            value={signupInfo.name}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            onChange={handleChange}
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            value={signupInfo.email}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={handleChange}
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            value={signupInfo.password}
-          />
-        </div>
-        <div className="cars">
-          {/* <Dropdown /> */}
-          <label htmlFor="cars">Choose the id type:</label>
-          <select
-            name="accountType"
-            id="cars"
-            value={signupInfo.accountType} // Bind the state value to the dropdown
-            onChange={handleChange}
+    <div className="h-screen w-full flex justify-center items-center">
+      <div className="bg-white rounded-lg p-8 w-full max-w-sm shadow-2xl shadow-slate-500">
+        <h1 className="text-3xl font-semibold mb-2">SignUp</h1>
+        <form onSubmit={handleSignup} className="flex flex-col gap-2">
+          <div className="flex flex-col">
+            <label htmlFor="name" className="text-lg mb-1">
+              Name
+            </label>
+            <input
+              onChange={handleChange}
+              type="text"
+              name="name"
+              autoFocus
+              placeholder="Enter your name"
+              value={signupInfo.name}
+              className="w-full text-lg p-2 border-b border-black placeholder-italic
+              placeholder-text-sm focus:outline-none"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="email" className="text-lg mb-1">
+              Email
+            </label>
+            <input
+              onChange={handleChange}
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={signupInfo.email}
+              className="w-full text-lg p-2 border-b border-black 
+              placeholder-text-sm focus:outline-none  "
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="password" className="text-lg mb-1">
+              Password
+            </label>
+            <input
+              onChange={handleChange}
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={signupInfo.password}
+              className="w-full text-lg p-2 border-b border-black 
+              placeholder-text-sm focus:outline-none"
+            />
+          </div>
+          <div className="mt-4">
+            {/* <Dropdown /> */}
+            <label htmlFor="cars" className="text-lg mb-1">
+              Choose the id type:
+            </label>
+            <select
+              className="border-b m-3"
+              name="accountType"
+              id="cars"
+              value={signupInfo.accountType} // Bind the state value to the dropdown
+              onChange={handleChange}
+            >
+              <option value="seller">Seller</option>
+              <option value="buyer">Buyer</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            className="bg-purple-800 text-white text-lg 
+          rounded-md p-2 mt-2 hover:bg-purple-900"
           >
-            <option value="seller">Seller</option>
-            <option value="buyer">Buyer</option>
-          </select>
-        </div>
-        <button type="submit">Signup</button>
-        <span>
-          Already have an account?
-          <Link to="/login">Login</Link>
-        </span>
-      </form>
-      <ToastContainer />
+            Signup
+          </button>
+          <span>
+            Already have an account?
+            <Link to="/login" className="text-blue-800">
+              Login
+            </Link>
+          </span>
+        </form>
+        <ToastContainer />
+      </div>
     </div>
   );
 }

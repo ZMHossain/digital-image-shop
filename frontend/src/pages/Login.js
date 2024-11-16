@@ -80,9 +80,9 @@ function Login() {
   };
 
   return (
-    <div className="h-screen w-full flex justify-center items-center border-black">
-      <div className="bg-white p-8 rounded-lg w-full max-w-sm shadow-lg border-black">
-        <h1 className="text-xl font-semibold mb-2">Login</h1>
+    <div className="h-screen w-full flex justify-center items-center">
+      <div className="bg-white p-8 rounded-lg w-full max-w-sm shadow-2xl shadow-slate-500">
+        <h1 className=" text-3xl font-semibold mb-2 text-blue-600">Login</h1>
 
         <form onSubmit={handleLogin} className="flex flex-col gap-2">
           <div className="flex flex-col ">
@@ -129,7 +129,7 @@ function Login() {
           </div>
           <button
             type="submit"
-            className="bg-purple-700 text-white text-lg rounded-md p-2 mt-2 hover:bg-purple-800"
+            className="bg-purple-800 text-white text-lg rounded-md p-2 mt-2 hover:bg-purple-900"
           >
             Login
           </button>
