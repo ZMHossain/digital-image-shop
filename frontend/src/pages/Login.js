@@ -80,49 +80,68 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            onChange={handleChange}
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            value={loginInfo.email}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={handleChange}
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            value={loginInfo.password}
-          />
-        </div>
-        <div className="cars">
-          {/* <Dropdown /> */}
-          <label htmlFor="cars">Choose the id type:</label>
-          <select
-            name="accountType"
-            id="cars"
-            value={loginInfo.accountType} // Bind the state value to the dropdown
-            onChange={handleChange}
+    <div className="h-screen w-full flex justify-center items-center border-black">
+      <div className="bg-white p-8 rounded-lg w-full max-w-sm shadow-lg border-black">
+        <h1 className="text-xl font-semibold mb-2">Login</h1>
+
+        <form onSubmit={handleLogin} className="flex flex-col gap-2">
+          <div className="flex flex-col ">
+            <label htmlFor="email" className="text-lg mb-1">
+              Email
+            </label>
+            <input
+              onChange={handleChange}
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={loginInfo.email}
+              className="w-full text-lg p-2 border-b border-black placeholder-italic placeholder-text-sm focus:outline-none"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="password" className="text-lg mb-1">
+              Password
+            </label>
+            <input
+              onChange={handleChange}
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={loginInfo.password}
+              className="w-full text-lg p-2 border-b border-black placeholder-italic placeholder-text-sm focus:outline-none"
+            />
+          </div>
+          <div className="mt-4">
+            {/* <Dropdown /> */}
+            <label htmlFor="cars" className="text-lg mb-1">
+              Choose the id type :
+            </label>
+            <select
+              className="border-b m-3"
+              name="accountType"
+              id="cars"
+              value={loginInfo.accountType} // Bind the state value to the dropdown
+              onChange={handleChange}
+            >
+              <option value="seller">Seller</option>
+              <option value="buyer">Buyer</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            className="bg-purple-700 text-white text-lg rounded-md p-2 mt-2 hover:bg-purple-800"
           >
-            <option value="seller">Seller</option>
-            <option value="buyer">Buyer</option>
-          </select>
-        </div>
-        <button type="submit">Login</button>
-        <span>
-          Don't have an account?
-          <Link to="/signup">Signup</Link>
-        </span>
-      </form>
-      <ToastContainer />
+            Login
+          </button>
+          <span>
+            Don't have an account?
+            <Link to="/signup" className="text-blue-800">
+              Signup
+            </Link>
+          </span>
+        </form>
+        <ToastContainer />
+      </div>
     </div>
   );
 }
