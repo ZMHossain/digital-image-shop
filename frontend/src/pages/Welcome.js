@@ -38,63 +38,27 @@ const Welcome = () => {
   return (
     <>
       <Navbar />
-      <div style={{ marginTop: "30px", padding: "250px" }}>
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            fontFamily: "sans-serif",
-            marginBottom: "20px",
-            fontSize: "50px",
-          }}
-        >
+      <div className="m-8 p-16">
+        <h1 className=" flex justify-center font-sans mb-12 text-5xl">
           Welcome to NexCart
         </h1>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between", // or "space-around"
-          }}
-        >
+        <div className=" flex flex-wrap justify-start">
           {products &&
             products?.map((product) => (
               <div
                 key={product._id}
-                style={{
-                  width: "250px",
-                  margin: "10px",
-                  padding: "0px",
-                  border: "1px solid #ddd",
-                  borderRadius: "8px",
-                  boxShadow: "5px",
-                  boxSizing: "border-box",
-                  overflow: "hidden",
-                }}
+                className=" w-60 m-3 p-0 border border-gray-300 rounded-md shadow-[5px] box-border overflow-hidden "
               >
                 <img
                   src={product.imageUrl}
                   alt={product.name}
-                  style={{ width: "100%", height: "250px", objectFit: "cover" }}
+                  className="w-full h-[250px] object-cover"
                 />
-                <p style={{ paddingLeft: "8px" }}>{product.name}</p>
-                <p style={{ paddingLeft: "8px" }}>{product.description}</p>
-                <p style={{ fontSize: "25px", padding: "5px" }}>
+                <p className="pl-2">{product.name}</p>
+                <p className="pl-2">{product.description}</p>
+                <p className="text-2xl p-1">
                   <strong>${product.price}</strong>
                 </p>
-                {/* <button
-                  onClick={() => addToCart(product)}
-                  style={{
-                    backgroundColor: "#4CAF50",
-                    color: "white",
-                    padding: "10px",
-                    border: "none",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                  }}
-                >
-                  Add to Cart
-                </button> */}
               </div>
             ))}
         </div>

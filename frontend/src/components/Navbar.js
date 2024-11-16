@@ -79,21 +79,11 @@ const Navbar = () => {
           {user && buyerType === "true" ? "Become a Seller" : "Signup"}
         </Button>
         {(user || buyerType === "true") && (
-          <Button
-            onClick={handleSellerDashboardClick}
-            color="inherit"
-            // component={Link}
-            // to="/seller-dashboard"
-          >
+          <Button onClick={handleBuyerDashboardClick} color="inherit">
             {user && buyerType === "true" ? "Buyer Dashboard" : "Help"}
           </Button>
         )}
-        <Button
-          onClick={handleBuyerDashboardClick}
-          color="inherit"
-          // component={Link}
-          // to="/buyer-dashboard"
-        >
+        <Button onClick={handleSellerDashboardClick} color="inherit">
           {user && sellerType === "true" ? "Seller Dashboard" : "Help"}
         </Button>
         {/* Add Search Icon */}

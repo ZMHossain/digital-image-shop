@@ -51,7 +51,7 @@ const SellerDashboardCart = () => {
             display: "flex",
 
             flexWrap: "wrap",
-            justifyContent: "space-around",
+            justifyContent: "flex-start",
           }}
         >
           {products &&
