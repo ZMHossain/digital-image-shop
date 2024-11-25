@@ -34,49 +34,26 @@ const SellerDashboardCart = () => {
   return (
     <>
       <Navbar />
-      <div style={{ marginTop: "50px", padding: "20px" }}>
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            fontFamily: "sans-serif",
-            marginBottom: "20px",
-            fontSize: "50px",
-          }}
-        >
-          Welcome to Seller Dashboard Cart
+      <div className="m-8 p-16">
+        <h1 className=" flex justify-center font-sans mb-12 text-5xl">
+          Welcome to Seller Dashboard
         </h1>
-        <div
-          style={{
-            display: "flex",
-
-            flexWrap: "wrap",
-            justifyContent: "flex-start",
-          }}
-        >
+        <div className=" flex flex-wrap justify-center">
           {products &&
             products?.map((product) => (
               <div
                 key={product._id}
-                style={{
-                  width: "250px",
-                  margin: "10px",
-                  padding: "0px",
-                  border: "1px solid #ddd",
-                  borderRadius: "8px",
-                  boxShadow: "5px",
-                  boxSizing: "border-box",
-                  overflow: "hidden",
-                }}
+                className="w-[250px] m-[10px] p-0 border-gray-300 rounded-md
+                 shadow-md box-border overflow-hidden"
               >
                 <img
                   src={product.imageUrl}
                   alt={product.name}
-                  style={{ width: "100%", height: "250px", objectFit: "cover" }}
+                  className="w-full h-[250px] object-cover"
                 />
-                <p style={{ paddingLeft: "8px" }}>{product.name}</p>
-                <p style={{ paddingLeft: "8px" }}>{product.description}</p>
-                <p style={{ fontSize: "25px", padding: "5px" }}>
+                <p className="pl-2">{product.name}</p>
+                <p className="pl-2">{product.description}</p>
+                <p className="p-[5px] text-2xl">
                   <strong>${product.price}</strong>
                 </p>
               </div>

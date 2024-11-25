@@ -8,6 +8,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
 import { useLocation } from "react-router-dom";
+import Dropdown from "./DropDown";
 
 const Navbar = () => {
   const location = useLocation();
@@ -73,7 +74,7 @@ const Navbar = () => {
           component={Link}
           to="/login"
         >
-          {user ? user : "Login"}
+          {user ? <Dropdown state={user} /> : "Login"}
         </Button>
         <Button color="inherit" component={Link} to="/signup">
           {user && buyerType === "true" ? "Become a Seller" : "Signup"}

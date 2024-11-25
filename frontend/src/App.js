@@ -10,6 +10,7 @@ import SellerDashboard from "./pages/SellerDashboard";
 import Layout from "./components/Layout";
 import SellerDashboardCart from "./pages/SellerDashboardCart";
 import BuyerDashboard from "./pages/BuyerDashboard";
+import MyAccount from "./pages/MyAccount";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -30,10 +31,11 @@ function App() {
             path="/seller-dashboard-cart"
             element={<SellerDashboardCart />}
           />
-
+          <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/home" element={<PrivateRoute element={<Home />} />} />
         </Route>
         <Route path="/nexcart" element={<Welcome />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

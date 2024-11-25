@@ -42,7 +42,7 @@ const Welcome = () => {
         <h1 className=" flex justify-center font-sans mb-12 text-5xl">
           Welcome to NexCart
         </h1>
-        <div className=" flex flex-wrap justify-start">
+        <div className=" flex flex-wrap justify-center">
           {products &&
             products?.map((product) => (
               <div
