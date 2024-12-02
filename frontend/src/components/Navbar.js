@@ -15,7 +15,7 @@ const Navbar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const [user, setUser] = useContext(userContext);
+  const { user, setUser } = useContext(userContext);
   const [buyerType, setBuyerType] = useState(null);
   const [sellerType, setSellerType] = useState(null);
   const navigate = useNavigate();
