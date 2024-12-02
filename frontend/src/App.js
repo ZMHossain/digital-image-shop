@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <userContext.Provider value={user}>
+      <userContext.Provider value={{ user, setUser }}>
         <div className="App">
           <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
           <Routes>

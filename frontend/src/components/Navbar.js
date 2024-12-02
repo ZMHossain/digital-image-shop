@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -9,12 +9,13 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
 import { useLocation } from "react-router-dom";
 import Dropdown from "./DropDown";
+import { userContext } from "./context/context";
 
 const Navbar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useContext(userContext);
   const [buyerType, setBuyerType] = useState(null);
   const [sellerType, setSellerType] = useState(null);
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Navbar = () => {
     if (sellerAuth) {
       setSellerType(sellerAuth);
     }
-  }, []);
+  }, [setUser]);
 
   const handleSellerDashboardClick = () => {
     const isSellerAuthenticated = localStorage.getItem("sellerAuth"); // Check auth status for seller
