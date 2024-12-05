@@ -70,17 +70,6 @@ const MyProfile = () => {
                   </div>
                   <p>Email</p>
                   <p>Receive marketing emails</p>
-                  <div className="flex flex-col pt-16">
-                    <Button
-                      className="flex flex-col gap-4 "
-                      variant="contained"
-                    >
-                      Contained
-                    </Button>
-                    <Button className="flex flex-col m-10" variant="contained">
-                      Contained
-                    </Button>
-                  </div>
                 </div>
                 <div className="pr-16">
                   <p>{user}</p>
@@ -100,6 +89,14 @@ const MyProfile = () => {
                   <p>Email</p>
                   <p>Receive marketing emails</p>
                 </div>
+              </div>
+              <div className="flex flex-col justify-center items-center pt-16 space-y-8">
+                <Button className="flex flex-col  " variant="contained">
+                  Edit Profile
+                </Button>
+                <Button className="flex flex-col" variant="contained">
+                  Reset Password
+                </Button>
               </div>
             </div>
           </div>
