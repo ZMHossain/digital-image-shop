@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { userContext } from "../components/context/context";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { Link } from "react-router-dom";
 
-const MyAccount = () => {
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+
+const MyProfile = () => {
   const { user } = useContext(userContext);
   const handleClick = () => {
     console.log("run");
@@ -53,34 +54,52 @@ const MyAccount = () => {
         </div>
 
         <div className="flex flex-col">
-          <p className="pb-4 pt-4 text-2xl">Manage My Account</p>
+          <p className="pb-4 pt-4 text-2xl"> My Profile</p>
           <div className="flex flex-row pr-4">
-            <div className="flex flex-col bg-white p-6 rounded-md mr-2">
-              <div className="flex flex-row">
-                <p className="pr-2 text-xl">Personal Profile</p>
-                <button className=" text-blue-600">Edit</button>
-              </div>
-
-              <p>{user}</p>
-              <p>Email</p>
-              <p>Receive marketing emails</p>
-            </div>
-            <div className="flex flex-col bg-white p-6 rounded-md mr-2">
-              <div className="flex flex-row">
-                <p className="pr-2 text-xl">Address Book</p>
-                <button className=" text-blue-600">Edit</button>
-              </div>
-
-              <p className=" text-sm text-slate-500">
-                Save your shipping address here
-              </p>
-              <LocationOnIcon className="w-50 h-50" />
-            </div>
-            <div className="flex flex-col bg-white p-6 rounded-md">
-              <div className="flex flex-row">
-                <p className="pr-2 pt-[28px] text-sm text-slate-500">
-                  Save your billing address here
-                </p>
+            <div
+              className="flex flex-row bg-white pt-12 pl-8 rounded-md mr-2 w-[850px]
+            h-[400px]"
+            >
+              <div className="flex flex-row ">
+                <div className="pr-16">
+                  <h1>Full Name</h1>
+                  <p>{user}</p>
+                  <div className="flex flex-row">
+                    <p className="pr-2 text-xl">Personal Profile</p>
+                    <button className=" text-blue-600">Edit</button>
+                  </div>
+                  <p>Email</p>
+                  <p>Receive marketing emails</p>
+                  <div className="flex flex-col pt-16">
+                    <Button
+                      className="flex flex-col gap-4 "
+                      variant="contained"
+                    >
+                      Contained
+                    </Button>
+                    <Button className="flex flex-col m-10" variant="contained">
+                      Contained
+                    </Button>
+                  </div>
+                </div>
+                <div className="pr-16">
+                  <p>{user}</p>
+                  <div className="flex flex-row">
+                    <p className="pr-2 text-xl">Personal Profile</p>
+                    <button className=" text-blue-600">Edit</button>
+                  </div>
+                  <p>Email</p>
+                  <p>Receive marketing emails</p>
+                </div>
+                <div className="pr-16">
+                  <p>{user}</p>
+                  <div className="flex flex-row">
+                    <p className="pr-2 text-xl">Personal Profile</p>
+                    <button className=" text-blue-600">Edit</button>
+                  </div>
+                  <p>Email</p>
+                  <p>Receive marketing emails</p>
+                </div>
               </div>
             </div>
           </div>
@@ -90,4 +109,4 @@ const MyAccount = () => {
   );
 };
 
-export default MyAccount;
+export default MyProfile;

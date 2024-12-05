@@ -12,6 +12,7 @@ import SellerDashboardCart from "./pages/SellerDashboardCart";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import MyAccount from "./pages/MyAccount";
 import { userContext } from "./components/context/context";
+import MyProfile from "./pages/MyProfile";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,6 +37,7 @@ function App() {
                 element={<SellerDashboardCart />}
               />
               <Route path="/myaccount" element={<MyAccount />} />
+              <Route path="/myprofile" element={<MyProfile />} />
               <Route
                 path="/home"
                 element={<PrivateRoute element={<Home />} />}
