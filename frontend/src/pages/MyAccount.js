@@ -26,7 +26,10 @@ const MyAccount = () => {
               Manage My Account
             </button>
 
-            <button onClick={handleClick} className=" gap-2 pl-3">
+            <button
+              onClick={handleClick}
+              className=" gap-2 pl-3 hover:text-yellow-500 "
+            >
               <Link to="/myprofile"> My Profile</Link>
             </button>
             <button className=" pl-3 gap-2">Address book</button>
