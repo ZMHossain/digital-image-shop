@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { userContext } from "./context/context";
 
 const UserInfo = ({ user }) => {
+  const { loginInfo } = useContext(userContext);
   const sections = [
     {
       title: "Full Name",
@@ -10,7 +12,7 @@ const UserInfo = ({ user }) => {
     },
     {
       title: "Email Address",
-      content: user,
+      content: loginInfo?.email,
       subtitle: "Receive marketing emails",
       contents: "Gender",
     },

@@ -20,10 +20,11 @@ function App() {
     return isAuthenticated ? element : <Navigate to="/login" />;
   };
   const [user, setUser] = useState(null);
+  const [loginInfo, setLoginInfo] = useState("");
 
   return (
     <>
-      <userContext.Provider value={{ user, setUser }}>
+      <userContext.Provider value={{ user, setUser, loginInfo, setLoginInfo }}>
         <div className="App">
           <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
           <Routes>

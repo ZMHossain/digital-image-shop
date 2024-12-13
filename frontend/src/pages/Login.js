@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../util";
+import { userContext } from "../components/context/context";
 
 function Login() {
+  const { setLoginInfo: setGlobalLoginInfo } = useContext(userContext);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -41,6 +43,7 @@ function Login() {
       const { success, message, jwtToken, name, error, _id } = result;
 
       if (success) {
+        setGlobalLoginInfo(loginInfo);
         handleSuccess(message);
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
