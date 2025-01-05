@@ -45,6 +45,7 @@ function Login() {
       if (success) {
         setGlobalLoginInfo(loginInfo);
         handleSuccess(message);
+        localStorage.setItem("loginInfo", JSON.stringify(loginInfo));
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
 

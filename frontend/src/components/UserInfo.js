@@ -7,7 +7,7 @@ const UserInfo = ({ user }) => {
     {
       title: "Full Name",
       content: user,
-      subtitle: "Personal Profile",
+      subtitle: " Profile picture",
       contents: "Birthday",
     },
     {

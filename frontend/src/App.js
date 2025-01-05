@@ -13,6 +13,7 @@ import BuyerDashboard from "./pages/BuyerDashboard";
 import MyAccount from "./pages/MyAccount";
 import { userContext } from "./components/context/context";
 import MyProfile from "./pages/MyProfile";
+import { useEffect } from "react";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -20,7 +21,13 @@ function App() {
     return isAuthenticated ? element : <Navigate to="/login" />;
   };
   const [user, setUser] = useState(null);
-  const [loginInfo, setLoginInfo] = useState("");
+  const [loginInfo, setLoginInfo] = useState(null);
+  useEffect(() => {
+    const savedLoginInfo = localStorage.getItem("loginInfo");
+    if (savedLoginInfo) {
+      setLoginInfo(JSON.parse(savedLoginInfo));
+    }
+  }, []);
 
   return (
     <>
