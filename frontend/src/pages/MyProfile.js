@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import { userContext } from "../components/context/context";
 
 import { Link } from "react-router-dom";
@@ -6,9 +7,11 @@ import Button from "@mui/material/Button";
 import SideBar from "../components/SideBar";
 import UserAction from "../components/UserAction";
 import ProfileContent from "../components/ProfileContent";
+import { useState } from "react";
 
 const MyProfile = () => {
   const { user } = useContext(userContext);
+
   const handleClick = () => {
     console.log("run");
   };

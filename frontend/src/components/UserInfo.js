@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { userContext } from "./context/context";
+import { useState } from "react";
 
 const UserInfo = ({ user }) => {
   const { loginInfo } = useContext(userContext);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const handleFileUpload = () => {};
   const sections = [
     {
       title: "Full Name",
@@ -31,8 +34,16 @@ const UserInfo = ({ user }) => {
         <div className="pr-16" key={index}>
           <h1>{section.title}</h1>
           <p>{section.content}</p>
+          <p>{section.subtitle}</p>
           <div className="flex flex-row">
-            <p>{section.subtitle}</p>
+            {index === 0 && (
+              <input
+                className="flex flex-col"
+                type="file"
+                accept="image/*"
+                onChange={handleFileUpload}
+              />
+            )}
             <button className="flex pl-2 text-sky-900">Edit</button>
           </div>
         </div>
