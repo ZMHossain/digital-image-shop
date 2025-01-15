@@ -64,9 +64,7 @@ function Signup() {
         <h1 className="text-3xl font-semibold mb-2">SignUp</h1>
         <form onSubmit={handleSignup} className="flex flex-col gap-2">
           <div className="flex flex-col">
-            <label htmlFor="name" className="text-lg mb-1">
-              Name
-            </label>
+            <label htmlFor="name" className="text-lg mb-1"></label>
             <input
               onChange={handleChange}
               type="text"
@@ -79,9 +77,7 @@ function Signup() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="email" className="text-lg mb-1">
-              Email
-            </label>
+            <label htmlFor="email" className="text-lg mb-1"></label>
             <input
               onChange={handleChange}
               type="email"
@@ -93,9 +89,7 @@ function Signup() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="password" className="text-lg mb-1">
-              Password
-            </label>
+            <label htmlFor="password" className="text-lg mb-1"></label>
             <input
               onChange={handleChange}
               type="password"
@@ -106,7 +100,24 @@ function Signup() {
               placeholder-text-sm focus:outline-none"
             />
           </div>
-          <div className="mt-4">
+          <div className="flex flex-col">
+            <label
+              htmlFor="password"
+              className=" text-base text-indigo-900 font-semibold mb-1"
+            >
+              Add a Profile Picture
+            </label>
+            <input
+              onChange={handleChange}
+              type="file"
+              name="password"
+              placeholder="Enter your password"
+              value={signupInfo.password}
+              className="w-full mt-1  
+              "
+            />
+          </div>
+          <div className="mt-1">
             {/* <Dropdown /> */}
             <label htmlFor="cars" className="text-lg mb-1">
               Choose the id type:

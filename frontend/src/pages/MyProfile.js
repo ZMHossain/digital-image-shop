@@ -11,10 +11,17 @@ import { useState } from "react";
 
 const MyProfile = () => {
   const { user } = useContext(userContext);
-
-  const handleClick = () => {
-    console.log("run");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const handleFileUpload = async (e) => {
+    const file = e.target.files;
+    setSelectedFile(file);
+    console.log(`file = ${file}`);
+    const formData = new FormData();
+    formData.append("profilePicture", file);
+    console.log(`formData = ${formData}`);
   };
+
+  const handleClick = () => {};
 
   return (
     <>
@@ -25,6 +32,12 @@ const MyProfile = () => {
         <SideBar />
         <div className=" bg-white rounded-md p-10 mt-12 h-[420px] ">
           <ProfileContent user={user} />
+          <input
+            className="flex flex-col"
+            type="file"
+            accept="image/*"
+            onChange={handleFileUpload}
+          />
         </div>
       </div>
     </>

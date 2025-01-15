@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import { useLocation } from "react-router-dom";
 import Dropdown from "./DropDown";
 import { userContext } from "./context/context";
+import FallbackAvatars from "./ProfilePicture";
 
 const Navbar = () => {
   const location = useLocation();
@@ -97,6 +98,7 @@ const Navbar = () => {
         <IconButton color="inherit" component={Link} to="/cart">
           <ShoppingCartIcon />
         </IconButton>
+        <FallbackAvatars />
       </Toolbar>
     </AppBar>
   );

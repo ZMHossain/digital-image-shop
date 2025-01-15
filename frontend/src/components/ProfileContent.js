@@ -6,9 +6,7 @@ const ProfileContent = ({ user }) => {
   return (
     <div className="flex flex-col">
       <UserInfo user={user} />
-      <div className="flex justify-center">
-        <UserAction />
-      </div>
+      <div className="flex justify-center">{/* <UserAction /> */}</div>
     </div>
   );
 };
