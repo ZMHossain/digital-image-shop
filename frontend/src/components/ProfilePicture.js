@@ -5,11 +5,13 @@ import { useState } from "react";
 import { deepOrange } from "@mui/material/colors";
 
 export default function FallbackAvatars() {
-  const [imageSrc, setImageSrc] = useState("/broken-image.jpg");
+  const [imageSrc, setImageSrc] = useState(
+    "https://as2.ftcdn.net/v2/jpg/05/06/25/11/1000_F_506251131_EO3crbdUKjf6HRy5tL1GFklKaocOHPpq.jpg"
+  );
   const handleAvatarClick = () => {
     const newSrc =
       imageSrc === "/broken-image.jpg"
-        ? "https://via.placeholder.com/150"
+        ? "https://as2.ftcdn.net/v2/jpg/05/06/25/11/1000_F_506251131_EO3crbdUKjf6HRy5tL1GFklKaocOHPpq.jpg"
         : "/broken-image.jpg";
     setImageSrc(newSrc);
     console.log(newSrc);

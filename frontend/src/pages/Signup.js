@@ -19,6 +19,10 @@ function Signup() {
     copySignupInfo[name] = value;
     setSignupInfo(copySignupInfo);
   };
+  const [profilePicture, setProfilePicture] = useState(null);
+  const handleFileChange = (e) => {
+    setProfilePicture(e.target.files[0]);
+  };
   // console.log("loginInfo ->", loginInfo);
 
   const handleSignup = async (e) => {
@@ -28,14 +32,22 @@ function Signup() {
     if (!name || !email || !password || !accountType) {
       return handleError("name,email,password and Account type are required");
     }
+
     try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("accountType", accountType);
+      if (profilePicture) {
+        formData.append(profilePicture);
+      }
+
       const url = "http://localhost:8080/auth/signup";
       const response = await fetch(url, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(signupInfo),
+
+        body: formData,
       });
 
       const result = await response.json();
@@ -108,10 +120,11 @@ function Signup() {
               Add a Profile Picture
             </label>
             <input
-              onChange={handleChange}
+              onChange={handleFileChange}
               type="file"
-              name="password"
-              placeholder="Enter your password"
+              name="profilePicture"
+              id="profilePicture"
+              accept="image/*"
               value={signupInfo.password}
               className="w-full mt-1  
               "
