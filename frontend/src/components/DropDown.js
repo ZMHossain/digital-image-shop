@@ -35,7 +35,14 @@ function Dropdown({ state }) {
         >
           Manage My Account
         </MenuItem>
-        <MenuItem onClick={handleClose}>Option 2</MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          color="inherit"
+          component={Link}
+          to="/activitylog"
+        >
+          Activity Log
+        </MenuItem>
         <MenuItem onClick={handleClose}>Option 3</MenuItem>
       </Menu>
     </div>

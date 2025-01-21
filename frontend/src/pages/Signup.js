@@ -40,7 +40,7 @@ function Signup() {
       formData.append("password", password);
       formData.append("accountType", accountType);
       if (profilePicture) {
-        formData.append(profilePicture);
+        formData.append("profilePicture", profilePicture);
       }
 
       const url = "http://localhost:8080/auth/signup";
@@ -114,7 +114,7 @@ function Signup() {
           </div>
           <div className="flex flex-col">
             <label
-              htmlFor="password"
+              htmlFor="profilePicture"
               className=" text-base text-indigo-900 font-semibold mb-1"
             >
               Add a Profile Picture
@@ -125,7 +125,7 @@ function Signup() {
               name="profilePicture"
               id="profilePicture"
               accept="image/*"
-              value={signupInfo.password}
+              // value={signupInfo.password}
               className="w-full mt-1  
               "
             />

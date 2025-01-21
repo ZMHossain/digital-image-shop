@@ -14,6 +14,9 @@ import MyAccount from "./pages/MyAccount";
 import { userContext } from "./components/context/context";
 import MyProfile from "./pages/MyProfile";
 import { useEffect } from "react";
+import ActivityLog from "./pages/ActivityLog";
+import WeeklyRouitine from "./pages/WeeklyRouitine";
+import DailyRoutine from "./pages/DailyRoutine";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -45,6 +48,9 @@ function App() {
                 element={<SellerDashboardCart />}
               />
               <Route path="/myaccount" element={<MyAccount />} />
+              <Route path="/activitylog" element={<ActivityLog />} />
+              <Route path="/weeklyroutine" element={<WeeklyRouitine />} />
+              <Route path="/dailyroutine" element={<DailyRoutine />} />
               <Route path="/myprofile" element={<MyProfile />} />
               <Route
                 path="/home"
