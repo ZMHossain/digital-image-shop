@@ -44,7 +44,7 @@ function Signup() {
       }
       console.log(formData);
 
-      const url = "http://localhost:8080/auth/signup";
+      const url = " https://buyfew-backend.onrender.com";
       const response = await fetch(url, {
         method: "POST",
 
