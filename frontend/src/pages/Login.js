@@ -30,7 +30,7 @@ function Login() {
       return handleError("email, password and account type are required");
     }
     try {
-      const url = "http://localhost:8080/auth/login";
+      const url = "https://buyfew-backend.onrender.com";  
       const response = await fetch(url, {
         method: "POST",
         headers: {
