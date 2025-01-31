@@ -71,6 +71,10 @@ function Signup() {
     }
   };
 
+  const handleUpload = () => {
+    console.log("run");
+  };
+
   return (
     <div className="h-screen w-full flex justify-center items-center">
       <div className="bg-white rounded-lg p-8 w-full max-w-sm shadow-2xl shadow-slate-500">
@@ -120,16 +124,27 @@ function Signup() {
             >
               Add a Profile Picture
             </label>
-            <input
-              onChange={handleFileChange}
-              type="file"
-              name="profilePicture"
-              id="profilePicture"
-              accept="image/*"
-              // value={signupInfo.password}
-              className="w-full mt-1  
+            <div className="flex flex-row">
+              <input
+                onChange={handleFileChange}
+                type="file"
+                name="profilePicture"
+                id="profilePicture"
+                accept="image/*"
+                // value={signupInfo.password}
+                className="w-full mt-1  
               "
-            />
+              />
+              <button
+                type="button"
+                onClick={handleUpload}
+                className="flex flex-start bg-teal-700 text-slate-100
+                 w-[23%] text-lg
+             mt-2 pl-2 pr-2 rounded-md "
+              >
+                Upload
+              </button>
+            </div>
           </div>
           <div className="mt-1">
             {/* <Dropdown /> */}
