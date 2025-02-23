@@ -44,7 +44,7 @@ function Signup() {
       }
       console.log(formData);
 
-      const url = "http://localhost:8080/auth/signup";
+      const url = " https://buyfew-backend.onrender.com";
       const response = await fetch(url, {
         method: "POST",
 
@@ -69,6 +69,10 @@ function Signup() {
     } catch (err) {
       handleError(err);
     }
+  };
+
+  const handleUpload = () => {
+    console.log("run");
   };
 
   return (
@@ -120,16 +124,27 @@ function Signup() {
             >
               Add a Profile Picture
             </label>
-            <input
-              onChange={handleFileChange}
-              type="file"
-              name="profilePicture"
-              id="profilePicture"
-              accept="image/*"
-              // value={signupInfo.password}
-              className="w-full mt-1  
+            <div className="flex flex-row">
+              <input
+                onChange={handleFileChange}
+                type="file"
+                name="profilePicture"
+                id="profilePicture"
+                accept="image/*"
+                // value={signupInfo.password}
+                className="w-full mt-1  
               "
-            />
+              />
+              <button
+                type="button"
+                onClick={handleUpload}
+                className="flex flex-start bg-teal-800 text-slate-100
+                 w-[23%] text-lg
+             mt-2 pl-2 pr-2 rounded-md "
+              >
+                Upload
+              </button>
+            </div>
           </div>
           <div className="mt-1">
             {/* <Dropdown /> */}

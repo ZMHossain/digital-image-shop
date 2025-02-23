@@ -9,7 +9,7 @@ const Welcome = () => {
 
   const fetchProducts = async () => {
     try {
-      const url = "http://localhost:8080/products/allproducts";
+      const url = " https://buyfew-backend.onrender.com";
       const response = await fetch(url);
       const result = await response.json();
       // Log the result to verify it's the expected array

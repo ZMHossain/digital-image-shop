@@ -44,7 +44,7 @@ function SellerDashboard() {
       //     ...productData,
       //   });
 
-      const url = "http://localhost:8080/products/add";
+      const url = " https://buyfew-backend.onrender.com";
       const response = await fetch(url, {
         method: "POST",
         headers: {
