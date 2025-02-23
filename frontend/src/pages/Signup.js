@@ -138,7 +138,7 @@ function Signup() {
               <button
                 type="button"
                 onClick={handleUpload}
-                className="flex flex-start bg-teal-700 text-slate-100
+                className="flex flex-start bg-teal-800 text-slate-100
                  w-[23%] text-lg
              mt-2 pl-2 pr-2 rounded-md "
               >
