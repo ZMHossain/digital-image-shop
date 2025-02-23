@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 
 const WeeklyRouitine = () => {
-  const [buttonText, setButtonText] = useState("Normal Button");
+  const [buttonText, setButtonText] = useState("Normal");
   const [isEditing, setIsEditing] = useState(false);
+  const [inputText, setInputText] = useState(buttonText);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [task, setTask] = useState("Normal Button");
   const handleEdit = () => {
     setIsEditing(!isEditing);
+    if (isEditing) {
+      setButtonText(inputText);
+      console.log(buttonText);
+    } else {
+      setInputText(buttonText);
+      console.log(inputText);
+    }
   };
   const handleTextChange = (e) => {
     setButtonText(e.target.value);
@@ -24,13 +32,13 @@ const WeeklyRouitine = () => {
           {isEditing ? (
             <input
               type="text"
-              value={buttonText}
+              value={inputText}
               onChange={handleTextChange}
-              className="border border-gray-300 rounded px-4 py-2"
+              className="border border-gray-300 rounded w-[100%]"
             />
           ) : (
             <button
-              className=" bg-purple-800 text-white text-lg 
+              className=" bg-purple-800 text-white text-sm 
           rounded-md p-1 m-1  hover:bg-purple-900"
             >
               {buttonText}
@@ -42,7 +50,7 @@ const WeeklyRouitine = () => {
             className=" text-blue-600 text-sm 
           rounded-md p-1 m-2  hover:text-purple-900 transition-transform duration-200 active:scale-95"
           >
-            {isEditing ? "Finish Editing" : "Edit Button"}
+            {isEditing ? "Save" : "Edit"}
           </button>
         </div>
         <div class="font-bold px-4 py-2 border-b bg-gray-100 flex flex-col justify-center items-center border-gray-300">
